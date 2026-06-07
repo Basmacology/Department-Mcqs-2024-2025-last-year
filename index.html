@@ -1,0 +1,3030 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Psychology MCQs Past year 2024/2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #F4ECD8;
+            --text-color: #2C2C2C;
+            --correct-color: #4CAF50;
+            --incorrect-color: #F44336;
+            --card-bg: #ffffff;
+            --hover-color: #E8E0CC;
+            --divider-color: #8c7b65;
+            --calm-text: #5D5445;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'ADLaM Display', 'Cairo', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .header {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .control-panel {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-global {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 12px 24px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .btn-global:hover { background-color: #444444; }
+        .btn-global:active { transform: translateY(2px); }
+
+        /* تصميم عنوان الفصل المريح نفسياً */
+        .chapter-header {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--calm-text);
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            direction: ltr;
+            position: relative;
+        }
+
+        .chapter-header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--divider-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+            opacity: 0.3;
+        }
+
+        .chapter-note {
+            background-color: transparent;
+            color: #8c6b6b;
+            padding: 10px 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            border: 1px dashed #d6c4c4;
+            border-radius: 8px;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e8e8e8;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            direction: ltr;
+            text-align: left;
+            word-wrap: break-word;
+            font-weight: 600;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background-color: var(--bg-color);
+            border: 2px solid var(--hover-color);
+            border-radius: 8px;
+            padding: 14px 16px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            direction: ltr;
+            text-align: left;
+            width: 100%;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .option:hover { border-color: #bfa888; }
+
+        .option.selected.correct {
+            background-color: var(--correct-color);
+            color: white;
+            border-color: var(--correct-color);
+        }
+
+        .option.selected.incorrect {
+            background-color: var(--incorrect-color);
+            color: white;
+            border-color: var(--incorrect-color);
+        }
+
+        .option.reveal-correct {
+            border-color: var(--correct-color);
+            box-shadow: 0 0 0 2px var(--correct-color) inset;
+            background-color: #e8f5e9;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f1f8e9;
+            border-radius: 8px;
+            border-right: 5px solid var(--correct-color);
+            display: none;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+   .term {
+    background-color: rgba(0,0,0,0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'ADLaM Display', 'Cairo', monospace;
+    direction: ltr;
+    display: inline-block;
+}
+
+
+        /* زر مسح الفصل الهادئ والغير ملفت */
+        .chapter-reset-btn {
+            background: transparent;
+            border: 1px solid #d1c8b6;
+            color: #9e9381;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px auto 30px auto;
+            display: block;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .chapter-reset-btn:hover {
+            background-color: #f7f1e6;
+            color: #7a7161;
+            border-color: #b8ac99;
+        }
+
+        .chapter-divider {
+            border: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(140, 123, 101, 0.4), transparent);
+            margin: 40px 0;
+            border-radius: 2px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            body { padding: 30px; }
+            .header { font-size: 2.5rem; }
+            .question-text { font-size: 1.25rem; }
+            .option { font-size: 1.1rem; }
+        }
+                /* صندوق كلمة البصمجة */
+        .basmaga-box {
+            background-color: #e8f5e9;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-align: right;
+            font-weight: bold;
+            color: #2e7d32;
+            border-right: 4px solid #4caf50;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* نص البصمجة الأساسي */
+        .basmaga-text {
+            text-align: right;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* صندوق عنوان تفنيد الخيارات */
+        .wrong-title-box {
+            background-color: #eef5fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-align: right;
+            font-weight: bold;
+            color: #2c5282;
+            border-right: 4px solid #63b3ed;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* حاوية الخيار الخاطئ وتفنيده */
+        .wrong-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .wrong-item:last-child {
+            border-bottom: none;
+        }
+
+        /* صندوق حرف الخيار الخاطئ (يسار) */
+        .wrong-letter-box {
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        .wrong-letter-box span {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 2px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #495057;
+            display: inline-block;
+        }
+
+        /* نص تفنيد الخيار الخاطئ (يمين) */
+        .wrong-text-box {
+            text-align: right;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+                /* صندوق الخيار الإنجليزي الأنيق */
+        .wrong-option-box {
+            background-color: #f0f8ff; /* أزرق فاتح جداً ومريح */
+            border: 1px solid #cce3f6;
+            padding: 8px 14px;
+            border-radius: 8px;
+            color: #0b5394;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            margin-bottom: 8px;
+            direction: ltr;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+.wrong-option-container {
+    display: flex;
+    justify-content: flex-start;
+    direction: ltr;
+    width: 100%;
+}
+
+    .header-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-subtle-signature {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    font-family: 'ADLaM Display', cursive;
+    font-size: 0.8rem;
+    color: #b8ac99;
+    opacity: 0.35;
+    direction: ltr;
+    user-select: none;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.top-subtle-signature:hover {
+    opacity: 0.8;
+    color: #8c7b65;
+    cursor: default;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-global {
+    animation: pulse 2s infinite;
+}
+
+    </style>
+</head>
+<body>
+<div class="header-wrapper">
+    <div class="top-subtle-signature">by E I D R E S H A</div>
+    <div class="header">Behavioral Psychology MCQs</div>
+</div>
+
+
+        
+        <div class="control-panel">
+            <button class="btn-global" id="toggle-all-btn" onclick="toggleAllAnswers()">🫆 Activate Basmacology Mode 🫆</button>
+
+        </div>
+
+        <div id="quiz-container"></div>
+    </div>
+
+    <script>
+        const chaptersData = [ 
+            { id: 1, title: "Chapter 1", questions: [{
+        "id": "1_1",
+        "question": "1- Developmental psychology is a branch of psychology concerned with:",
+        "options": [
+            { "id": "a", "text": "Factors that shape behavior from birth to old age." },
+            { "id": "b", "text": "Social relation." },
+            { "id": "c", "text": "Frustration." },
+            { "id": "d", "text": "Aggression." },
+            { "id": "e", "text": "emotions" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "1_2",
+        "question": "2- Kohlberg identified the three levels of moral development as the",
+        "options": [
+            { "id": "a", "text": "Preconventional, conventional, and postconventional." },
+            { "id": "b", "text": "Conditional, unconditional, and postconditional." },
+            { "id": "c", "text": "Self-interested, social, and personal." },
+            { "id": "d", "text": "Premoral, conventional, and postethical." },
+            { "id": "e", "text": "Preoperational, operational and post operational." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "1_3",
+        "question": "3- A toddler learning to use the toilet who sometimes feels bad when he or she \"messes up\" is at Erikson's stage called",
+        "options": [
+            { "id": "a", "text": "Identity versus role confusion." },
+            { "id": "b", "text": "Initiative versus guilt." },
+            { "id": "c", "text": "Autonomy versus shame and doubt" },
+            { "id": "d", "text": "Intimacy versus isolation." },
+            { "id": "e", "text": "Integrity versus despair." }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "1_4",
+        "question": "4- Parameters of development include:",
+        "options": [
+            { "id": "a", "text": "Physical development." },
+            { "id": "b", "text": "Cognitive development." },
+            { "id": "c", "text": "Psychosocial development." },
+            { "id": "d", "text": "Moral development." },
+            { "id": "e", "text": "All of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "1_5",
+        "question": "5- According to Jean Piaget cognitive development theory, the concrete operational stage is characterized by:",
+        "options": [
+            { "id": "a", "text": "Symbolic thinking" },
+            { "id": "b", "text": "Grasping concepts of conservation of mass and understanding relations." },
+            { "id": "c", "text": "Forming hypothesis and systematically testing them" },
+            { "id": "d", "text": "Occurring in ages form 2 to 7 years old." },
+            { "id": "e", "text": "Abstract thinking." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "1_6",
+        "question": "6- Which represents the correct order of Piaget's stages of intellectual development?",
+        "options": [
+            { "id": "a", "text": "Sensorimotor, concrete operational, formal operational, post operational" },
+            { "id": "b", "text": "Preoperational, concrete operational, formal operational, sensorimotor" },
+            { "id": "c", "text": "Sensorimotor, preoperational, concrete operational, formal operational" },
+            { "id": "d", "text": "Preoperational, informal operational, formal operational, post operational" },
+            { "id": "e", "text": "Concrete operational, sesorimotor, preoperational, formal operational." }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "1_7",
+        "question": "7- In moral development, conventional conformity means:",
+        "options": [
+            { "id": "a", "text": "The individual behaves appropriately to avoid punishment." },
+            { "id": "b", "text": "The individual behaves appropriately to avoid disapproval by others" },
+            { "id": "c", "text": "The individual behaves appropriately to receive a reward." },
+            { "id": "d", "text": "The individual behaves appropriately to respect rules and laws." },
+            { "id": "e", "text": "The individual behaves appropriately according to universal ethics." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "1_8",
+        "question": "8- Which of the following most clearly demonstrates the existence of emotional attachment?",
+        "options": [
+            { "id": "a", "text": "Separation anxiety." },
+            { "id": "b", "text": "Learning to walk." },
+            { "id": "c", "text": "Imprinting." },
+            { "id": "d", "text": "Language development." },
+            { "id": "e", "text": "Physical development." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "1_9",
+        "question": "9- A child is largely nonverbal, is learning to coordinate purposeful movements with sense information, and is developing the concept of object permanence. The child is in Piaget's stage.",
+        "options": [
+            { "id": "a", "text": "Sensorimotor." },
+            { "id": "b", "text": "Preoperational." },
+            { "id": "c", "text": "Concrete operational." },
+            { "id": "d", "text": "Formal operations." },
+            { "id": "e", "text": "None of the above." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "1_10",
+        "question": "10- Physical growth and development is called",
+        "options": [
+            { "id": "a", "text": "Readiness." },
+            { "id": "b", "text": "Maturation." },
+            { "id": "c", "text": "Mobility." },
+            { "id": "d", "text": "Heredity." },
+            { "id": "e", "text": "Learning." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "1_11",
+        "question": "11- Schemata are;",
+        "options": [
+            { "id": "a", "text": "Described in emotional development" },
+            { "id": "b", "text": "Concepts formation of things around the infant during cognitive development" },
+            { "id": "c", "text": "They are innate" },
+            { "id": "d", "text": "They cannot be modified" },
+            { "id": "e", "text": "Cannot be generalized" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "1_12",
+        "question": "12) Accommodation:",
+        "options": [
+            { "id": "a", "text": "Involved in changing schemas in face of new information" },
+            { "id": "b", "text": "Is early bonding of children with mother" },
+            { "id": "c", "text": "Is the development of trust" },
+            { "id": "d", "text": "It is important in differentiation between schemata" },
+            { "id": "e", "text": "Both a and d are true" }
+        ],
+        "correctAnswer": "e"
+    },
+    {
+        "id": "1_13",
+        "question": "13) The understanding of relational terms, and using of simple logic occurs in the stage of",
+        "options": [
+            { "id": "a", "text": "Trust versus mistrust" },
+            { "id": "b", "text": "Concrete operational stage" },
+            { "id": "c", "text": "Formal operational stage" },
+            { "id": "d", "text": "Conventional morality" },
+            { "id": "e", "text": "Identity versus identity diffusion" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "1_14",
+        "question": "14) Which of the following sentence is not true about trust versus not trust stage",
+        "options": [
+            { "id": "a", "text": "The stages were developed by Erik Ericsson" },
+            { "id": "b", "text": "It is established when babies are ignored in order that they get independent quickly" },
+            { "id": "c", "text": "Established when babies are given adequate warmth" },
+            { "id": "d", "text": "Inadequate and indifferent parents lead to development of mistrust" },
+            { "id": "e", "text": "The stage occurs in the first year of life" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "1_15",
+        "question": "15) Temperament theory",
+        "options": [
+            { "id": "a", "text": "it describes the acquired mood related personality" },
+            { "id": "b", "text": "12 categories of behavior constitute the temperament" },
+            { "id": "c", "text": "There are 3 broad temperaments: easy, difficult and slow to warm" },
+            { "id": "d", "text": "Continuity of temperament into adulthood depends on child genotype" },
+            { "id": "e", "text": "Difficult children in the first 5 years of life do not have school problems" }
+        ],
+        "correctAnswer": "c"
+    }]  }, 
+            { id: 2, title: "Chapter 2", questions: [{
+        "id": "2_1",
+        "question": "1- The five-dimension model of personality postulated by Esyenck includes:",
+        "options": [
+            { "id": "a", "text": "Social interactionism." },
+            { "id": "b", "text": "Neuroticism." },
+            { "id": "c", "text": "Agreeableness." },
+            { "id": "d", "text": "Sense of humor." },
+            { "id": "e", "text": "Impulsivity" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "2_2",
+        "question": "2- According to Kelly, which of the following experiences is the result of our constructs' being unable to predict events well?",
+        "options": [
+            { "id": "a", "text": "Anxiety." },
+            { "id": "b", "text": "Viscertonia." },
+            { "id": "c", "text": "Role confusion." },
+            { "id": "d", "text": "Identity crises." },
+            { "id": "e", "text": "Autonomy." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "2_3",
+        "question": "3- Which pair of theorists shares a major interest in introversion-extraversion as a fundamental aspect of personality?",
+        "options": [
+            { "id": "a", "text": "Cattell and Allport." },
+            { "id": "b", "text": "Jung and Eysenck." },
+            { "id": "c", "text": "Freud and Jung." },
+            { "id": "d", "text": "Eysenck and All port." },
+            { "id": "e", "text": "Roger and Freud." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "2_4",
+        "question": "4- Maslow called the higher needs",
+        "options": [
+            { "id": "a", "text": "Biological needs." },
+            { "id": "b", "text": "Deficit or deficiency needs." },
+            { "id": "c", "text": "Satisfaction needs." },
+            { "id": "d", "text": "Growth or being needs." },
+            { "id": "e", "text": "Basic needs." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "2_5",
+        "question": "5- The humanistic theory of personality proposed by Carl Rogers is called:",
+        "options": [
+            { "id": "a", "text": "Client-centered approach." },
+            { "id": "b", "text": "Construct revision approach." },
+            { "id": "c", "text": "Fixed role approach." },
+            { "id": "d", "text": "Rational-emotive approach." },
+            { "id": "e", "text": "Free association approach." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "2_6",
+        "question": "6- The unconscious contains",
+        "options": [
+            { "id": "a", "text": "Material that can easily be brought to awareness" },
+            { "id": "b", "text": "Everything we are aware of at a given moment." },
+            { "id": "c", "text": "Repressed memones and ensotions," },
+            { "id": "d", "text": "Thoughts, perceptions, and memories." },
+            { "id": "e", "text": "Executive functions." }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "2_7",
+        "question": "7. According to Freud, the id is governed by the",
+        "options": [
+            { "id": "a", "text": "Pleasure principle." },
+            { "id": "b", "text": "Reality principle." },
+            { "id": "c", "text": "Ego ideal." },
+            { "id": "d", "text": "Creature comfort principle." },
+            { "id": "e", "text": "None of the above." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "2_8",
+        "question": "8- ______ theory maximized and ______ theory minimized the role of the unconscious.",
+        "options": [
+            { "id": "a", "text": "Trait; humanistic." },
+            { "id": "b", "text": "Psychoanalytic behaviorist." },
+            { "id": "c", "text": "Psychoanalytic; humanistic." },
+            { "id": "d", "text": "Trait; behaviorist." },
+            { "id": "e", "text": "Type; psychoanalytic." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "2_9",
+        "question": "9- One of Freud's major contributions was his",
+        "options": [
+            { "id": "a", "text": "Belief that the first years of life help to shape personality." },
+            { "id": "b", "text": "Belief in the concept of libido, sexual desires, and biological instincts." },
+            { "id": "c", "text": "Discovery of complexes during the genital stage." },
+            { "id": "d", "text": "Elaboration of the humanistic approach to personality development." },
+            { "id": "e", "text": "Focus on here and now." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "2_10",
+        "question": "10- A defining characteristic of traits is that they are",
+        "options": [
+            { "id": "a", "text": "Biological and fixed" },
+            { "id": "b", "text": "Observed." },
+            { "id": "c", "text": "Evaluative." },
+            { "id": "d", "text": "Enduring." },
+            { "id": "e", "text": "Objective." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "2_11",
+        "question": "11- The key idea in the behavioristic view is that",
+        "options": [
+            { "id": "a", "text": "Behavior is shaped and controlled by one's environment," },
+            { "id": "b", "text": "Behavior is the result of clashing forces with the personality." },
+            { "id": "c", "text": "Behavior can be understood in terms of the mental processing of information." },
+            { "id": "d", "text": "Environment plays a very small role in controlling one's behavior." },
+            { "id": "e", "text": "Environmental factors has no role in forming behavior." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "2_12",
+        "question": "12- The humanistic viewpoint emphasizes which of the following?",
+        "options": [
+            { "id": "a", "text": "Free will, self-image, and self-actualization." },
+            { "id": "b", "text": "Determinism, the unconscious and biological drives." },
+            { "id": "c", "text": "Natural selection and practical skills." },
+            { "id": "d", "text": "The idea that \"the environment is the key causal matrix.\"" },
+            { "id": "e", "text": "Body type determines behavior." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "2_13",
+        "question": "13 -Which of the following is an unconscious personality structure made up of the reality self, responsible for compromising and maintaining harmony?",
+        "options": [
+            { "id": "a", "text": "Superego." },
+            { "id": "b", "text": "Id." },
+            { "id": "c", "text": "Ego." },
+            { "id": "d", "text": "Subconscious." },
+            { "id": "e", "text": "Collective unconscious." }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "2_14",
+        "question": "14- It is the total quality of an individual's behavior, as shown in his/her characteristic habits, thoughts and expressions, attitudes and interests, manner of acting and philosophy in life.",
+        "options": [
+            { "id": "a", "text": "Intelligence" },
+            { "id": "b", "text": "Perception" },
+            { "id": "c", "text": "Motivation" },
+            { "id": "d", "text": "Personality" },
+            { "id": "e", "text": "Emotions." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "2_15",
+        "question": "15-Factors affecting personality are",
+        "options": [
+            { "id": "a", "text": "Biological" },
+            { "id": "b", "text": "Geographical" },
+            { "id": "c", "text": "Social" },
+            { "id": "d", "text": "All of the above" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "2_16",
+        "question": "16- \"The human mind is like an iceberg, a small part that floats on the surface of the water is the conscious experience and a larger mass under the water is the unconscious experience which is the storehouse of impulses, passions and primitive instincts that affects our thoughts and behaviors\" This concept is proposed by ______ Approach to understand personality",
+        "options": [
+            { "id": "a", "text": "Humanistic" },
+            { "id": "b", "text": "Biological" },
+            { "id": "c", "text": "Cognitive" },
+            { "id": "d", "text": "Psychoanalytical" },
+            { "id": "e", "text": "Behavioral." }
+        ],
+        "correctAnswer": "d"
+    }] },
+            { id: 3, title: "Chapter 3", questions: [{
+        "id": "3_1",
+        "question": "1- Which of the following is/are part of the definition of learning?",
+        "options": [
+            { "id": "a", "text": "Change in behavior" },
+            { "id": "b", "text": "Relatively permanent" },
+            { "id": "c", "text": "Brought about by experience" },
+            { "id": "d", "text": "All of the above" },
+            { "id": "e", "text": "None of the above." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "3_2",
+        "question": "2- Pavlov's initial interest in classical conditioning was stimulated when he observed his research dogs salivating at the sight of",
+        "options": [
+            { "id": "a", "text": "Food" },
+            { "id": "b", "text": "The attendants" },
+            { "id": "c", "text": "Saliva" },
+            { "id": "d", "text": "The food dish" },
+            { "id": "e", "text": "A bell." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "3_3",
+        "question": "3- In operant conditioning, the reinforcer occurs _______ the response, and in classical conditioning, it occurs _______",
+        "options": [
+            { "id": "a", "text": "After; before" },
+            { "id": "b", "text": "Before; after" },
+            { "id": "c", "text": "Before; before" },
+            { "id": "d", "text": "After; after" },
+            { "id": "e", "text": "In same time as; after" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "3_4",
+        "question": "4- Presenting the conditioned stimulus without the unconditioned stimulus will result in",
+        "options": [
+            { "id": "a", "text": "Reinforcement." },
+            { "id": "b", "text": "Generalization." },
+            { "id": "c", "text": "Spontaneous recovery." },
+            { "id": "d", "text": "Extinction." },
+            { "id": "e", "text": "Punishment" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "3_5",
+        "question": "5- A child is frightened by a loud noise while playing with a cat. If the child learns to fear the cat, it can be said that the cat was",
+        "options": [
+            { "id": "a", "text": "The unconditioned response (UR)." },
+            { "id": "b", "text": "A generalization response." },
+            { "id": "c", "text": "The unconditioned stimulus (US)." },
+            { "id": "d", "text": "A conditioned Stimulus." },
+            { "id": "e", "text": "None of the above." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "3_6",
+        "question": "6- Negative reinforcement _______ the response while punishment _______ the response",
+        "options": [
+            { "id": "a", "text": "Increases, Incremes" },
+            { "id": "b", "text": "Decreases, decreases" },
+            { "id": "c", "text": "Puresses, decrus" },
+            { "id": "d", "text": "Decreases, Increases" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "3_7",
+        "question": "7- A child who occasionally gets rewarded with candy after asking her grandmother for a \"test\" is being rewarded on a _______ schedule.",
+        "options": [
+            { "id": "a", "text": "Fixed ratio" },
+            { "id": "b", "text": "Variable ratio" },
+            { "id": "c", "text": "Fixed interval" },
+            { "id": "d", "text": "Partial interval" },
+            { "id": "e", "text": "Variable percentage." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "3_8",
+        "question": "8- To teach a child to eat spaghetti, you would reinforce initial responses, such as holding the fork, and then increasingly closer approximations to the final response, a procedure known as",
+        "options": [
+            { "id": "a", "text": "Chaining." },
+            { "id": "b", "text": "Secondary conditioning." },
+            { "id": "c", "text": "Desensitization." },
+            { "id": "d", "text": "Shaping." },
+            { "id": "e", "text": "Modeling." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "3_9",
+        "question": "9- The presentation of an aversive stimulus or the removal of a positive stimulus are both examples of",
+        "options": [
+            { "id": "a", "text": "Negative reinforcement." },
+            { "id": "b", "text": "Punishment." },
+            { "id": "c", "text": "Positive reinforcement." },
+            { "id": "d", "text": "Secondary reinforcement." },
+            { "id": "e", "text": "Generalization." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "3_10",
+        "question": "10- In Thorndike's law of effect, events critical for conditioning",
+        "options": [
+            { "id": "a", "text": "Occur after the response" },
+            { "id": "b", "text": "Occur before the response." },
+            { "id": "c", "text": "Occur simultaneously with the response." },
+            { "id": "d", "text": "Are unrelated to the response except during extinction." },
+            { "id": "e", "text": "None of the above." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "3_11",
+        "question": "11. Taking away a person's car after they have been caught speeding would be an example of:",
+        "options": [
+            { "id": "a", "text": "Positive punishment" },
+            { "id": "b", "text": "Negative punishment" },
+            { "id": "c", "text": "Positive reinforcement" },
+            { "id": "d", "text": "Negative reinforcement" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "3_12",
+        "question": "12. Positive reinforcement _______ the likelihood of a behaviour, and negative reinforcement _______ the likelihood of a behaviour.",
+        "options": [
+            { "id": "a", "text": "Increases, increases" },
+            { "id": "b", "text": "Decreases, decreases" },
+            { "id": "c", "text": "Increases, decreases" },
+            { "id": "d", "text": "Decreases, increases" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "3_13",
+        "question": "13. Positive punishment _______ behaviour, and negative punishment _______ behaviour.",
+        "options": [
+            { "id": "a", "text": "Strengthens, strengthens" },
+            { "id": "b", "text": "Weakens, weakens" },
+            { "id": "c", "text": "Strengthens, weakens" },
+            { "id": "d", "text": "Weakens, strengthens" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "3_14",
+        "question": "14. Ahmad got sick after eating a peach. Now he feels sick when he looks at peaches, nectarines or plums. This illustrates:",
+        "options": [
+            { "id": "a", "text": "Spontaneous recovery" },
+            { "id": "b", "text": "Intermittent reinforcement" },
+            { "id": "c", "text": "Modelling" },
+            { "id": "d", "text": "Generalization" },
+            { "id": "e", "text": "Extinction" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "3_15",
+        "question": "15. A bakery gives customers a free pastry after every 6 pastry purchases. This is an example of what kind of reinforcement schedule?",
+        "options": [
+            { "id": "a", "text": "Fixed interval" },
+            { "id": "b", "text": "Fixed ratio" },
+            { "id": "c", "text": "Variable interval" },
+            { "id": "d", "text": "Variable ratio" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "3_16",
+        "question": "16. An intermittent schedule of reinforcement that reinforces behaviour after an average, but unpredictable, amount of time has passed is called a _______ schedule.",
+        "options": [
+            { "id": "a", "text": "Fixed ratio" },
+            { "id": "b", "text": "Variable ratio" },
+            { "id": "c", "text": "Fixed interval" },
+            { "id": "d", "text": "Variable interval" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "3_17",
+        "question": "17. Which type of learning experiments show how the behaviour of animals can be controlled or shaped in a desired direction by making a careful use of reinforcement?",
+        "options": [
+            { "id": "a", "text": "Classical conditioning" },
+            { "id": "b", "text": "Operant conditioning" },
+            { "id": "c", "text": "Latent Learning" },
+            { "id": "d", "text": "Sign Learning" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    }] },
+            { id: 4, title: "Chapter 4", questions: [{
+        "id": "4_1",
+        "question": "1- An imaginary perception, such as seeing, hearing, or smelling something that does not exist in the external world is called a/an",
+        "options": [
+            { "id": "a", "text": "Illusion." },
+            { "id": "b", "text": "Hallucination." },
+            { "id": "c", "text": "Stroboscopic movement." },
+            { "id": "d", "text": "Müller-Lyer illusion." },
+            { "id": "e", "text": "Delusion." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "4_2",
+        "question": "2- Television advertisements that are in black and white are just trying to take advantage of which attention getting technique?",
+        "options": [
+            { "id": "a", "text": "Loudness" },
+            { "id": "b", "text": "Motion" },
+            { "id": "c", "text": "Contrast" },
+            { "id": "d", "text": "Repetition" },
+            { "id": "e", "text": "Modeling" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "4_3",
+        "question": "3- The process of converting physical energy into neural code is called",
+        "options": [
+            { "id": "a", "text": "Sensation" },
+            { "id": "b", "text": "Perception" },
+            { "id": "c", "text": "Transduction" },
+            { "id": "d", "text": "Selective attention" },
+            { "id": "e", "text": "Weber's law" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "4_4",
+        "question": "4- The phenomenon of perception:",
+        "options": [
+            { "id": "a", "text": "Results in a perfectly accurate representation of the world." },
+            { "id": "b", "text": "Improves the chances for survival." },
+            { "id": "c", "text": "Is an entirely psychological phenomenon." },
+            { "id": "d", "text": "Has evolved only recently." },
+            { "id": "e", "text": "Is not essential for processing information" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "4_5",
+        "question": "5- Jimmy refuses to eat a hamburger because he remembers how bad the last burger he ate was. Jimmy has a negative, which is an example of _______ processing.",
+        "options": [
+            { "id": "a", "text": "Difference; top-down" },
+            { "id": "b", "text": "Perception: top-down" },
+            { "id": "c", "text": "Perception; bottom-up" },
+            { "id": "d", "text": "Difference; bottom-up" },
+            { "id": "e", "text": "Memory; bottom-up" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "4_6",
+        "question": "6- Which might account for some extra sensory perceptional ESP experiences?",
+        "options": [
+            { "id": "a", "text": "rever-induced polydipsia" },
+            { "id": "b", "text": "Synchronicity" },
+            { "id": "c", "text": "Telepathy" },
+            { "id": "d", "text": "Anniversary phenomena" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "4_7",
+        "question": "7- Which of the following is a disorder of perception?",
+        "options": [
+            { "id": "a", "text": "Perceptual loss" },
+            { "id": "b", "text": "Perceptual deception" },
+            { "id": "c", "text": "Perceptual distortion" },
+            { "id": "d", "text": "All of the above" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "4_8",
+        "question": "8- All of the following are types of attention EXCEPT",
+        "options": [
+            { "id": "a", "text": "Involuntary attention" },
+            { "id": "b", "text": "Voluntary attention" },
+            { "id": "c", "text": "Spontaneous attention" },
+            { "id": "d", "text": "Autonomic attention" },
+            { "id": "e", "text": "Selective attention." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "4_9",
+        "question": "9- The stimuli below are seen as one group of circles and one group of squares due to the organizational principle of",
+        "options": [
+            { "id": "a", "text": "Similarity" },
+            { "id": "b", "text": "Nearness" },
+            { "id": "c", "text": "Closure" },
+            { "id": "d", "text": "Continuity" },
+            { "id": "e", "text": "Completion" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "4_10",
+        "question": "10- The tendency to group together objects that are the same size, shape, color, or form is known as",
+        "options": [
+            { "id": "a", "text": "Closure." },
+            { "id": "b", "text": "Continuation." },
+            { "id": "c", "text": "Similarity" },
+            { "id": "d", "text": "Nearness" },
+            { "id": "e", "text": "Completion" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "4_11",
+        "question": "11- As a door opens toward you, you perceive it as a rectangular door rather than going through actual image changes on the retina (from rectangular to trapezoid). This is an example of",
+        "options": [
+            { "id": "a", "text": "Perceptual Closure" },
+            { "id": "b", "text": "Shape Constancy" },
+            { "id": "c", "text": "Ambiguous Stimuli" },
+            { "id": "d", "text": "Retinal Disparity" },
+            { "id": "e", "text": "Continuation" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "4_12",
+        "question": "12. The tendency to fill in gaps in the perception of a figure is called",
+        "options": [
+            { "id": "a", "text": "Sensory completion." },
+            { "id": "b", "text": "Closure." },
+            { "id": "c", "text": "Figure-ground." },
+            { "id": "d", "text": "Continuation." },
+            { "id": "e", "text": "Similarity" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "4_13",
+        "question": "13- You observe two cars of identical make and model. Although one roars away and its image on your retina is changed, you still perceive the cars as identical. This phenomenon is",
+        "options": [
+            { "id": "a", "text": "Size constancy." },
+            { "id": "b", "text": "Shape constancy." },
+            { "id": "c", "text": "Concept constancy." },
+            { "id": "d", "text": "Form constancy." },
+            { "id": "e", "text": "Figure ground" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "4_14",
+        "question": "14- Decreased perceptual response to a repeated stimulus is called",
+        "options": [
+            { "id": "a", "text": "Habituation." },
+            { "id": "b", "text": "Selective attention." },
+            { "id": "c", "text": "Divided attention." },
+            { "id": "d", "text": "Hallucination." },
+            { "id": "e", "text": "Illusion" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "4_15",
+        "question": "15- White shirt reflects more light outdoors than in a dimly lit room; however, it is seen as being equally bright in both places. This demonstrates the role of _______ in perception.",
+        "options": [
+            { "id": "a", "text": "brightness constancy" },
+            { "id": "b", "text": "lightness constancy" },
+            { "id": "c", "text": "brightness parallax" },
+            { "id": "d", "text": "visual system limitations" },
+            { "id": "e", "text": "Retinal disparity" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "4_16",
+        "question": "16. An ability to \"read\" another person's mind is termed",
+        "options": [
+            { "id": "a", "text": "Clairvoyance." },
+            { "id": "b", "text": "Telepathy" },
+            { "id": "c", "text": "Precognition." },
+            { "id": "d", "text": "Psychokinesis." },
+            { "id": "e", "text": "Perception" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "4_17",
+        "question": "17. Sensations are organized into meaningful perceptions by",
+        "options": [
+            { "id": "a", "text": "Perceptual constancies." },
+            { "id": "b", "text": "Localization of meaning." },
+            { "id": "c", "text": "Perceptual grouping (gestalt) principles." },
+            { "id": "d", "text": "Sensory adaptation." },
+            { "id": "e", "text": "Figure ground differentiation" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "4_18",
+        "question": "18. Internal standards used to judge stimuli are referred to as",
+        "options": [
+            { "id": "a", "text": "Adaptation level." },
+            { "id": "b", "text": "Context." },
+            { "id": "c", "text": "Intuition." },
+            { "id": "d", "text": "Frames of reference." },
+            { "id": "e", "text": "Syntax" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "4_19",
+        "question": "19. Illusions are",
+        "options": [
+            { "id": "a", "text": "Distortions of existing stimuli." },
+            { "id": "b", "text": "The same as hallucinations." },
+            { "id": "c", "text": "The result of innate mechanisms." },
+            { "id": "d", "text": "Not based on external reality." },
+            { "id": "e", "text": "In subjective space" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "4_20",
+        "question": "20. The stimuli below are organized as three columns rather than six columns because of the organizational principle of",
+        "options": [
+            { "id": "a", "text": "Similarity." },
+            { "id": "b", "text": "Nearness." },
+            { "id": "c", "text": "Closure." },
+            { "id": "d", "text": "Continuity." },
+            { "id": "e", "text": "Completion" }
+        ],
+        "correctAnswer": "b"
+    }] },
+            { id: 5, title: "Chapter 5", questions: [{
+        "id": "5_1",
+        "question": "1- Essay questions tend to be more difficult than multiple choices because with an essay question",
+        "options": [
+            { "id": "a", "text": "There are more cues to stimulate memory" },
+            { "id": "b", "text": "Recall is required rather than recognition" },
+            { "id": "c", "text": "There is more proactive inhibition." },
+            { "id": "d", "text": "There is more interference possible." },
+            { "id": "e", "text": "Depends on recognition" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "5_2",
+        "question": "2- The first step in placing information into memory storage is",
+        "options": [
+            { "id": "a", "text": "Mnemonic memory." },
+            { "id": "b", "text": "Short-term memory." },
+            { "id": "c", "text": "Sensory memory." },
+            { "id": "d", "text": "Rehearsal." },
+            { "id": "e", "text": "Chaining" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "5_3",
+        "question": "3- Procedural memory, unlike declarative memory is responsible for:",
+        "options": [
+            { "id": "a", "text": "Records facts." },
+            { "id": "b", "text": "Preserves images." },
+            { "id": "c", "text": "Includes sounds and smells." },
+            { "id": "d", "text": "Involves the hippocampus." },
+            { "id": "e", "text": "Involves sequences or routines." }
+        ],
+        "correctAnswer": "e"
+    },
+    {
+        "id": "5_4",
+        "question": "4- Why are mnemonic devices effective?",
+        "options": [
+            { "id": "a", "text": "To remember material, you must first pay attention to it." },
+            { "id": "b", "text": "Memory depends on the strategy of memory organization and how often it is rehearsed." },
+            { "id": "c", "text": "Memory depends on retrieval strategies." },
+            { "id": "d", "text": "They stir up emotions." },
+            { "id": "e", "text": "Increase attention" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "5_5",
+        "question": "5. The process of holding information in memory is referred to as",
+        "options": [
+            { "id": "a", "text": "Retrieval." },
+            { "id": "b", "text": "Encoding." },
+            { "id": "c", "text": "Storage" },
+            { "id": "d", "text": "Organization." },
+            { "id": "e", "text": "Rehearsal" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "5_6",
+        "question": "6. The storage capacity of long-term memory is best described as",
+        "options": [
+            { "id": "a", "text": "A single item." },
+            { "id": "b", "text": "About seven items." },
+            { "id": "c", "text": "About seven volumes." },
+            { "id": "d", "text": "Limitless," },
+            { "id": "e", "text": "Limited" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "5_7",
+        "question": "7- The inability to recall events preceding an accident involving injuries to the head is called:",
+        "options": [
+            { "id": "a", "text": "Retrograde amnesia." },
+            { "id": "b", "text": "Prograde amnesia." },
+            { "id": "c", "text": "Motivated forgetting." },
+            { "id": "d", "text": "Cognitive blockage." },
+            { "id": "e", "text": "Total amnesia" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "5_8",
+        "question": "8- According to the interference theory of forgetting,",
+        "options": [
+            { "id": "a", "text": "Memory capacity is limited so that when new information is brought in, older memories must be removed." },
+            { "id": "b", "text": "New learning can inhibit the retrieval of stored memory, and vice-versa." },
+            { "id": "c", "text": "Forgetting is directly related to the complexity and meaningfulness of the incoming information." },
+            { "id": "d", "text": "Cues present at the time of learning interfere with memory retrieval." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    }] },
+            { id: 6, title: "Chapter 6", questions: [{
+        "id": "6_1",
+        "question": "1- Concept formation refers to",
+        "options": [
+            { "id": "a", "text": "The organization of phonemes and morphemes into meaningful thoughts." },
+            { "id": "b", "text": "The application of transformation rules to basic sentences." },
+            { "id": "c", "text": "Inductive as opposed to deductive thinking." },
+            { "id": "d", "text": "Organizing experiences into meaningful categories." },
+            { "id": "e", "text": "The application of chaining rules to enhance memory." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "6_2",
+        "question": "2- A rigid mental set can be a barrier to problem solving. Which of the following refers to a similar barrier to problem solving?",
+        "options": [
+            { "id": "a", "text": "Oversimplification." },
+            { "id": "b", "text": "Invalid reasoning." },
+            { "id": "c", "text": "Functional fixedness." },
+            { "id": "d", "text": "Divergent problem solving." },
+            { "id": "e", "text": "Concept formation" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "6_3",
+        "question": "3- A problem-solving rule or procedure that, when followed step by step, assures that a correct solution will be found is known as:",
+        "options": [
+            { "id": "a", "text": "Mental set." },
+            { "id": "b", "text": "Trial and error." },
+            { "id": "c", "text": "Algorithm." },
+            { "id": "d", "text": "Insight." },
+            { "id": "e", "text": "Heuristic" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "6_4",
+        "question": "4- The cognitive process known as _______ thinking occurs when an individual freely considers a variety of potential solutions to artistic, literary, scientific, or practical problems.",
+        "options": [
+            { "id": "a", "text": "Heuristic." },
+            { "id": "b", "text": "Extravagant." },
+            { "id": "c", "text": "Convergent." },
+            { "id": "d", "text": "Divergent." },
+            { "id": "e", "text": "Algorithmic" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "6_5",
+        "question": "5- A (n) _______ represents a general principle that guides problem solving, though it does not guarantee a correct solution.",
+        "options": [
+            { "id": "a", "text": "Mental set" },
+            { "id": "b", "text": "Heuristic" },
+            { "id": "c", "text": "Algorithm" },
+            { "id": "d", "text": "Insight" },
+            { "id": "e", "text": "Insight" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "6_6",
+        "question": "6- Words or ideas representing a class of objects are called",
+        "options": [
+            { "id": "a", "text": "Abstractions." },
+            { "id": "b", "text": "Attributes." },
+            { "id": "c", "text": "Thoughts." },
+            { "id": "d", "text": "Concepts." },
+            { "id": "e", "text": "Behavior" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "6_7",
+        "question": "7- The inability to realize that a problem can be solved by using a familiar object in an unusual way is likely due to a mental set known as:",
+        "options": [
+            { "id": "a", "text": "Functional fixedness" },
+            { "id": "b", "text": "Divergent thinking" },
+            { "id": "c", "text": "Convergent thinking" },
+            { "id": "d", "text": "Creative thinking" },
+            { "id": "e", "text": "Heuristic thinking" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "6_8",
+        "question": "8. In decision making, the _______ represents the tendency to estimate the probability of an event by how easily relevant instances of it come to mind.",
+        "options": [
+            { "id": "a", "text": "Representative heuristic" },
+            { "id": "b", "text": "Availability heuristic" },
+            { "id": "c", "text": "Framing effect" },
+            { "id": "d", "text": "Functional fixedness" },
+            { "id": "e", "text": "modelling" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "6_9",
+        "question": "9. Observational learning is also known as:",
+        "options": [
+            { "id": "a", "text": "Classical conditioning" },
+            { "id": "b", "text": "Operant conditioning" },
+            { "id": "c", "text": "Modelling" },
+            { "id": "d", "text": "Manipulation" },
+            { "id": "e", "text": "Trial and error" }
+        ],
+        "correctAnswer": "c"
+    }] },
+            { id: 7, title: "Chapter 7", questions: [{
+        "id": "7_1",
+        "question": "1- _______ is the capacity for learning certain and specific abilities.",
+        "options": [
+            { "id": "a", "text": "Achievement" },
+            { "id": "b", "text": "Intelligence" },
+            { "id": "c", "text": "Aptitude" },
+            { "id": "d", "text": "Scholastic" },
+            { "id": "e", "text": "Attitude" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "7_2",
+        "question": "2- Howard Gardner has theorized all of the following types of intelligence EXCEPT",
+        "options": [
+            { "id": "a", "text": "Language." },
+            { "id": "b", "text": "Creativity." },
+            { "id": "c", "text": "Interpersonal skills." },
+            { "id": "d", "text": "Intrapersonal skills." },
+            { "id": "e", "text": "Musical" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "7_3",
+        "question": "3- The distribution of IQ scores:",
+        "options": [
+            { "id": "a", "text": "Is approximately normal or bell-shaped." },
+            { "id": "b", "text": "Shows that most people score between 80 and 100." },
+            { "id": "c", "text": "Reveals a difference in the average for men and women." },
+            { "id": "d", "text": "Falls off abruptly above 100." },
+            { "id": "e", "text": "Falls off abruptly below 100" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "7_4",
+        "question": "4- IQ may be defined as:",
+        "options": [
+            { "id": "a", "text": "Mental age (MA) /Chronological age (CA) x100." },
+            { "id": "b", "text": "Chronological age (CA)/Mental age (MA) x100." },
+            { "id": "c", "text": "Mental age (MA)/100 x Chronological age (CA)." },
+            { "id": "d", "text": "Mental age (MA) x Chronological age (CA) x100." },
+            { "id": "e", "text": "Mental age (MA) x Chronological age (CA) - 100." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "7_5",
+        "question": "5- If a girl has an intelligence quotient is 100, we know that she has a",
+        "options": [
+            { "id": "a", "text": "Perfect score on a set of age-related tests." },
+            { "id": "b", "text": "Test performance superior to 90% of other children the same age who took the test." },
+            { "id": "c", "text": "Mental age typical of children who have the same chronological age." },
+            { "id": "d", "text": "Mental age below those of children with the same chronological age." },
+            { "id": "e", "text": "100% of children of same age." }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "7_6",
+        "question": "6- Robert Sternberg developed the Tri-archic theory of intelligence, which he believed is comprised of 3 types of intelligence:",
+        "options": [
+            { "id": "a", "text": "Interpersonal, intrapersonal, creative." },
+            { "id": "b", "text": "Interpersonal, analytical, practical." },
+            { "id": "c", "text": "Practical, creative, interpersonal." },
+            { "id": "d", "text": "Analytical, creative, practical." },
+            { "id": "e", "text": "Creative, intrapersonal, practical." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "7_7",
+        "question": "7- Charles Spearman believed that _______ a single determinant was responsible for a person's overall intelligence",
+        "options": [
+            { "id": "a", "text": "Triarchic." },
+            { "id": "b", "text": "7 primary abilities." },
+            { "id": "c", "text": "Creativity." },
+            { "id": "d", "text": "G factor." },
+            { "id": "e", "text": "T factor." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "7_8",
+        "question": "8- One of the key factors of emotional intelligence is",
+        "options": [
+            { "id": "a", "text": "Self awareness." },
+            { "id": "b", "text": "Self management." },
+            { "id": "c", "text": "Social awareness." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "7_9",
+        "question": "9- The Weschler adult intelligence scale can be used to assess eligibility for:",
+        "options": [
+            { "id": "a", "text": "Special educational needs." },
+            { "id": "b", "text": "Housing benefit." },
+            { "id": "c", "text": "Disability allowance." },
+            { "id": "d", "text": "Suicide risk." },
+            { "id": "e", "text": "Certain drug use" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "7_10",
+        "question": "10- A worker high in emotional intelligence would engage in such behaviors as:",
+        "options": [
+            { "id": "a", "text": "Recognizing when a coworker needs help but is too embarrassed to ask" },
+            { "id": "b", "text": "Dealing with the anger of a dissatisfied customer." },
+            { "id": "c", "text": "Being able to tell whether a customer's \"maybe\" means \"yes\" or \"no.\"" },
+            { "id": "d", "text": "All of the above" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    }] },
+            { id: 8, title: "Chapter 8", questions: [{
+        "id": "8_1",
+        "question": "1- The study of the meaning of words is important because",
+        "options": [
+            { "id": "a", "text": "It reveals the connection between language and thought" },
+            { "id": "b", "text": "People speak different languages and translation becomes important." },
+            { "id": "c", "text": "It is necessary to follow the development of phonemes by a growing child." },
+            { "id": "d", "text": "It measures the emotional content of language." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "8_2",
+        "question": "2- Morphemes are:",
+        "options": [
+            { "id": "a", "text": "Speech sounds which have no meaning in themselves" },
+            { "id": "b", "text": "Grammar rules of the language." },
+            { "id": "c", "text": "The meaning of words and sentences." },
+            { "id": "d", "text": "The smallest units of meaning in a spoken language." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "8_3",
+        "question": "3- In the development of language, the child by the age of 1-2 years:",
+        "options": [
+            { "id": "a", "text": "Combine sentences of 2 words." },
+            { "id": "b", "text": "Use grammatical rules." },
+            { "id": "c", "text": "Have vocabulary of 25 words." },
+            { "id": "d", "text": "Begin to speak." },
+            { "id": "e", "text": "Can tell a story" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "8_4",
+        "question": "4- Infants utter their first words around:",
+        "options": [
+            { "id": "a", "text": "6 months of age." },
+            { "id": "b", "text": "8 months of age." },
+            { "id": "c", "text": "12 months of age." },
+            { "id": "d", "text": "15 months of age." },
+            { "id": "e", "text": "18 months of age" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "8_5",
+        "question": "5- Learning the speech sounds of the native language is known as:",
+        "options": [
+            { "id": "a", "text": "Semantics." },
+            { "id": "b", "text": "Grammar." },
+            { "id": "c", "text": "Syntax." },
+            { "id": "d", "text": "Phonology." },
+            { "id": "e", "text": "Synonym" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "8_6",
+        "question": "6. Skinner argued that children would be likely to repeat sounds If they were followed by a pleasurable response. This viewpoint has its foundation in:",
+        "options": [
+            { "id": "a", "text": "the language acquisition device" },
+            { "id": "b", "text": "the nativist theory" },
+            { "id": "c", "text": "operant conditioning" },
+            { "id": "d", "text": "observational learning" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "8_7",
+        "question": "7. What is the term for the smallest meaningful unit of speech in a language?",
+        "options": [
+            { "id": "a", "text": "Morpheme" },
+            { "id": "b", "text": "Semantics" },
+            { "id": "c", "text": "Phoneme" },
+            { "id": "d", "text": "Syntax" },
+            { "id": "e", "text": "Synonym" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "8_8",
+        "question": "8. Chomsky believed that individuals were able to extract the rules of a language simply from hearing a language spoken and without any type of learning. The ability to do this connects to which of the following?",
+        "options": [
+            { "id": "a", "text": "Operant conditioning" },
+            { "id": "b", "text": "Reinforcement" },
+            { "id": "c", "text": "Radical behaviorism" },
+            { "id": "d", "text": "The language acquisition device" },
+            { "id": "e", "text": "Punishment" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "8_9",
+        "question": "9. The ways in which a language conveys meaning:",
+        "options": [
+            { "id": "a", "text": "Semantics" },
+            { "id": "b", "text": "Morphemes" },
+            { "id": "c", "text": "Pragmatics" },
+            { "id": "d", "text": "phonemes" },
+            { "id": "e", "text": "Syntax" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "8_10",
+        "question": "10 Semantics refers to:",
+        "options": [
+            { "id": "a", "text": "Learning word meanings." },
+            { "id": "b", "text": "Knowledge of the rules of combining words in sentences." },
+            { "id": "c", "text": "Learning to communicate with words." },
+            { "id": "d", "text": "Learning new words." },
+            { "id": "e", "text": "Learning new behavior" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "8_11",
+        "question": "11- Pragmatics is:",
+        "options": [
+            { "id": "a", "text": "how communication works." },
+            { "id": "b", "text": "Learning new words." },
+            { "id": "c", "text": "Combining words in sentences." },
+            { "id": "d", "text": "Sound differences between similar words." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "8_12",
+        "question": "12- The suggestion that infants are born as \"universal language perceivers\" according to Chomsky refers to:",
+        "options": [
+            { "id": "a", "text": "An ability to distinguish between different languages." },
+            { "id": "b", "text": "A preference for the native language over others." },
+            { "id": "c", "text": "An inability to distinguish between different languages." },
+            { "id": "d", "text": "An ability to discriminate between all sounds used in all languages." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "8_13",
+        "question": "13- Syntax is:",
+        "options": [
+            { "id": "a", "text": "Knowledge of how words and phrases can be combined." },
+            { "id": "b", "text": "Study of word meanings." },
+            { "id": "c", "text": "Subtle sound differences between similar words." },
+            { "id": "d", "text": "Perceiving different phonemic categories." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "8_14",
+        "question": "14- Function of language is:",
+        "options": [
+            { "id": "a", "text": "Learning." },
+            { "id": "b", "text": "Interpersonal communication." },
+            { "id": "c", "text": "Thinking." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    }] },
+            { id: 9, title: "Chapter 9", questions: [{
+        "id": "9_1",
+        "question": "1- The following are known functions of REM sleep EXCEPT:",
+        "options": [
+            { "id": "a", "text": "Catecholamine synthesis." },
+            { "id": "b", "text": "Memory Consolidation." },
+            { "id": "c", "text": "Restoration of body functions after fatigue" },
+            { "id": "d", "text": "Dreaming." },
+            { "id": "e", "text": "Brain development in infants" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "9_2",
+        "question": "2- The following is a function of sleep:",
+        "options": [
+            { "id": "a", "text": "Restoration after fatigue." },
+            { "id": "b", "text": "Growth hormone secretion." },
+            { "id": "c", "text": "Memory consolidation." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "9_3",
+        "question": "3- The sleep stage associated with dreaming includes:",
+        "options": [
+            { "id": "a", "text": "Stage one." },
+            { "id": "b", "text": "Stage two." },
+            { "id": "c", "text": "Stage three." },
+            { "id": "d", "text": "REM stage." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "9_4",
+        "question": "4- A sleep disorder in which an awake person suffers from repeated, sudden, and irresistible REM sleep attacks is known as:",
+        "options": [
+            { "id": "a", "text": "Insomnia" },
+            { "id": "b", "text": "Narcolepsy" },
+            { "id": "c", "text": "Somnambulism" },
+            { "id": "d", "text": "Sleep apnea" },
+            { "id": "e", "text": "Hypersomnia" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "9_5",
+        "question": "5- Psychoanalytic theorists suggest that the _______ content contains the hidden, underlying meaning of the dream.",
+        "options": [
+            { "id": "a", "text": "Manifest." },
+            { "id": "b", "text": "Lucid." },
+            { "id": "c", "text": "Latent." },
+            { "id": "d", "text": "Conscious." },
+            { "id": "e", "text": "Preconscious" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "9_6",
+        "question": "6-During which stage of sleep is a human paralyzed and unable to move?",
+        "options": [
+            { "id": "a", "text": "Stage one." },
+            { "id": "b", "text": "Stage two." },
+            { "id": "c", "text": "Stage three." },
+            { "id": "d", "text": "REM stage." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "9_7",
+        "question": "7- NREM (Non Rapid Eye Movement) sleep is characterized by:",
+        "options": [
+            { "id": "a", "text": "It is responsible for protein synthesis and restoration of body functions." },
+            { "id": "b", "text": "Represents 20-25% of sleep." },
+            { "id": "c", "text": "Dreams occur in this phase and can be recalled." },
+            { "id": "d", "text": "Most of physiological activities are as in wake state." },
+            { "id": "e", "text": "Increased muscle activity" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "9_8",
+        "question": "8- The symptoms of sleep deprivation include all of the following EXCEPT?",
+        "options": [
+            { "id": "a", "text": "Trembling hands and irritability" },
+            { "id": "b", "text": "Inability to concentrate" },
+            { "id": "c", "text": "Decreased growth" },
+            { "id": "d", "text": "Increased body temperature" },
+            { "id": "e", "text": "Hallucinations" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "9_9",
+        "question": "9- A patient tells his therapist that he had a dream fighting a lion strongly. The therapist explains that his dream was most likely about his wish to kill his father, as the Lion represents a father. This therapist is using the _______ theory of dreams to explain Randall's dream.",
+        "options": [
+            { "id": "a", "text": "Activation-synthesis." },
+            { "id": "b", "text": "Dreams-for-survival." },
+            { "id": "c", "text": "Psychoanalytical" },
+            { "id": "d", "text": "Hobson/McCarley." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "9_10",
+        "question": "10- In which age group do night terrors occur most frequently?",
+        "options": [
+            { "id": "a", "text": "2-6 year old patients." },
+            { "id": "b", "text": "12-16 year old patients." },
+            { "id": "c", "text": "42-46 year old patients." },
+            { "id": "d", "text": "62-66 year old patients." },
+            { "id": "e", "text": "30-40 year old patients" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "9_11",
+        "question": "11. All the following are characteristics of REM sleep except",
+        "options": [
+            { "id": "a", "text": "Brain activity is increased during REM." },
+            { "id": "b", "text": "Increased muscle tone." },
+            { "id": "c", "text": "Vivid emotional dreams." },
+            { "id": "d", "text": "Enhanced respiration and blood pressure." },
+            { "id": "e", "text": "Presence of beta activity." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "9_12",
+        "question": "12. The following is correct about sleep cycles except:",
+        "options": [
+            { "id": "a", "text": "Slow wave sleep (SWS) precedes REM." },
+            { "id": "b", "text": "An average sleep cycle lasts about 90 min." },
+            { "id": "c", "text": "REM lengthens overnight." },
+            { "id": "d", "text": "Slow wave sleep shortens overnight." },
+            { "id": "e", "text": "REM shortens overnight." }
+        ],
+        "correctAnswer": "e"
+    },
+    {
+        "id": "9_13",
+        "question": "13. The following is correct about neurotransmitters and sleep except:",
+        "options": [
+            { "id": "a", "text": "Serotonin promotes wakefulness." },
+            { "id": "b", "text": "Acetylcholine induces REM." },
+            { "id": "c", "text": "Dopamine promotes wakefulness." },
+            { "id": "d", "text": "Serotonin promotes sleep." },
+            { "id": "e", "text": "Norepinephrine promotes wakefulness." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "9_14",
+        "question": "14. All the following is correct except:",
+        "options": [
+            { "id": "a", "text": "Biorhythms is any change in biological activity that repeats periodically." },
+            { "id": "b", "text": "Circadian means approximately one day." },
+            { "id": "c", "text": "Suprachiasmatic nucleus is responsible for the biological clock." },
+            { "id": "d", "text": "Circadian rhythm is observed in sleep, body temperature, hormonal levels." },
+            { "id": "e", "text": "Zeitgeber refers to internal factors controlling circadian rhythm" }
+        ],
+        "correctAnswer": "e"
+    },
+    {
+        "id": "9_15",
+        "question": "15. Choose the correct statement:",
+        "options": [
+            { "id": "a", "text": "Autonomic activity increases during slow wave sleep." },
+            { "id": "b", "text": "Muscle tone increases during REM sleep." },
+            { "id": "c", "text": "Growth hormone increases during NREM" },
+            { "id": "d", "text": "Deep tendon reflexes are decreased during NREM." },
+            { "id": "e", "text": "Vivid dreams are a function of slow wave sleep." }
+        ],
+        "correctAnswer": "c"
+    }] },
+            { id: 10, title: "Chapter 10", questions: [{
+        "id": "10_1",
+        "question": "1- An internal state or condition that activates and gives direction to our thoughts is called",
+        "options": [
+            { "id": "a", "text": "Motivation" },
+            { "id": "b", "text": "Emotion." },
+            { "id": "c", "text": "Aggression." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "10_2",
+        "question": "2- Intrinsic motivation occurs when",
+        "options": [
+            { "id": "a", "text": "Obligations or approval are factors." },
+            { "id": "b", "text": "There is no obvious external reward for one's behavior." },
+            { "id": "c", "text": "There are obvious external factors controlling behavior." },
+            { "id": "d", "text": "Extrinsic motivation is also high." },
+            { "id": "e", "text": "It occurs due to external products." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "10_3",
+        "question": "3- Extrinsic motivation stems from",
+        "options": [
+            { "id": "a", "text": "Obvious external factors." },
+            { "id": "b", "text": "Intrinsic motivation." },
+            { "id": "c", "text": "Primary drives." },
+            { "id": "d", "text": "Self-actualization." },
+            { "id": "e", "text": "Inherent satisfaction" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "10_4",
+        "question": "4- Each of the following is a primary motive EXCEPT:",
+        "options": [
+            { "id": "a", "text": "Hunger." },
+            { "id": "b", "text": "Thirst." },
+            { "id": "c", "text": "Avoidance of pain." },
+            { "id": "d", "text": "Desire to be competent" },
+            { "id": "e", "text": "Self actualization" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "10_5",
+        "question": "5- According to Maslow's theory, the basic needs include",
+        "options": [
+            { "id": "a", "text": "Physiological needs, safety, and security." },
+            { "id": "b", "text": "Safety, love, and belonging." },
+            { "id": "c", "text": "Physiological needs and belonging." },
+            { "id": "d", "text": "Security and esteem." },
+            { "id": "e", "text": "Self actualization" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "10_6",
+        "question": "6- A motivated state known as _______ is caused by physiological deprivation, such as a lack of food or water.",
+        "options": [
+            { "id": "a", "text": "Need." },
+            { "id": "b", "text": "Instinct." },
+            { "id": "c", "text": "Drive" },
+            { "id": "d", "text": "Homeostasis." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "10_7",
+        "question": "7. Drive reduction aims to restore a steady state of physiological equilibrium known as:",
+        "options": [
+            { "id": "a", "text": "Need." },
+            { "id": "b", "text": "Instinct." },
+            { "id": "c", "text": "Drive." },
+            { "id": "d", "text": "Homeostasis." },
+            { "id": "e", "text": "Self-actualization" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "10_8",
+        "question": "8- At the top of Maslow's hierarchy of motives is/are:",
+        "options": [
+            { "id": "a", "text": "Love and belonging." },
+            { "id": "b", "text": "Esteem and self-esteem." },
+            { "id": "c", "text": "Self-actualization." },
+            { "id": "d", "text": "Safety and security." },
+            { "id": "e", "text": "Physiological needs" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "10_9",
+        "question": "9- The employees at a factory were excellent workers until a week before when news spread that economic conditions would force the managers to close the factory. The quality and quantity of work declined. Maslow would say that these workers were motivated by",
+        "options": [
+            { "id": "a", "text": "Meta-needs." },
+            { "id": "b", "text": "Intrinsic motivation." },
+            { "id": "c", "text": "Esteem and self-esteem." },
+            { "id": "d", "text": "Basic needs and security." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "10_10",
+        "question": "10- The desire for mastery, excellence, and accomplishment is known as:",
+        "options": [
+            { "id": "a", "text": "The sex motive" },
+            { "id": "b", "text": "The hunger motive" },
+            { "id": "c", "text": "The achievement motive" },
+            { "id": "d", "text": "Sensation seeking" },
+            { "id": "e", "text": "Basic needs" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "10_11",
+        "question": "11- Motivation is defined as inferred process within a person that causes organism to move toward:",
+        "options": [
+            { "id": "a", "text": "A goal." },
+            { "id": "b", "text": "All other organisms." },
+            { "id": "c", "text": "A homeostatic state." },
+            { "id": "d", "text": "Higher levels in the hierarchy of needs." },
+            { "id": "e", "text": "None of these." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "10_12",
+        "question": "12- Which of the following is an example of extrinsic motivation?",
+        "options": [
+            { "id": "a", "text": "Doing a good job because of the sense of satisfaction when you are finished." },
+            { "id": "b", "text": "Doing a good job in order to get a pay raise." },
+            { "id": "c", "text": "Working hard because of the pride you take in your work." },
+            { "id": "d", "text": "Doing a good job because you enjoy your work." },
+            { "id": "e", "text": "None of these." }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "10_13",
+        "question": "13- Unlearned biological motives necessary for survival are termed:",
+        "options": [
+            { "id": "a", "text": "Primary motives." },
+            { "id": "b", "text": "Secondary motives." },
+            { "id": "c", "text": "Drives." },
+            { "id": "d", "text": "Stimulus motives." },
+            { "id": "e", "text": "Spiritual motives." }
+        ],
+        "correctAnswer": "a"
+    }] },
+            { id: 11, title: "Chapter 11", questions: [{
+        "id": "11_1",
+        "question": "1- Which theory of emotion holds the view that bodily changes PRECEDE emotion and that we experience an emotion AFTER our body reacts?",
+        "options": [
+            { "id": "a", "text": "The common sense theory" },
+            { "id": "b", "text": "The Cannon-Bard theory" },
+            { "id": "c", "text": "The Attribution theory" },
+            { "id": "d", "text": "The James-Lange theory" },
+            { "id": "e", "text": "The equity theory" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "11_2",
+        "question": "2. According to the Cannon-Bard theory,",
+        "options": [
+            { "id": "a", "text": "The thalamus plays a central role in producing emotions." },
+            { "id": "b", "text": "The cerebellum must give the go-ahead for emotion." },
+            { "id": "c", "text": "Activity in the occipital and parietal lobes happens simultaneously to produce emotion." },
+            { "id": "d", "text": "The sympathetic and parasympathetic nervous systems work in concert." },
+            { "id": "e", "text": "The temporal lobe and cerebellum are essential in producing emotions" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "11_3",
+        "question": "3- A student exclaimed, \"I know I'm afraid of Dr. Jones because every time I enter his class I break out in a sweat and the muscles in my forehead tense up in a very special way.\" This statement best illustrates",
+        "options": [
+            { "id": "a", "text": "The psychodynamic." },
+            { "id": "b", "text": "The Cannon- Bard." },
+            { "id": "c", "text": "The James-Lange." },
+            { "id": "d", "text": "The humanistic-existential." },
+            { "id": "e", "text": "The attribution theory of emotion." }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "11_4",
+        "question": "4- A Mood is",
+        "options": [
+            { "id": "a", "text": "The most extreme forms of various emotions." },
+            { "id": "b", "text": "The subtle emotional undercurrents." },
+            { "id": "c", "text": "Reflects basic physiological changes." },
+            { "id": "d", "text": "A long lasting internal state of emotions" },
+            { "id": "e", "text": "An objective state" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "11_5",
+        "question": "5- A man almost hit the car next to him, which caused his _______ nervous system to become active, elevating his heart rate and respiration; however, once he avoided the car next to him. the _______ nervous system allowed his body to calm down.",
+        "options": [
+            { "id": "a", "text": "Central; peripheral." },
+            { "id": "b", "text": "Peripheral; central." },
+            { "id": "c", "text": "Central; parasympathetic." },
+            { "id": "d", "text": "Sympathetic; central." },
+            { "id": "e", "text": "Sympathetic, parasympathetic." }
+        ],
+        "correctAnswer": "e"
+    },
+    {
+        "id": "11_6",
+        "question": "6- You are feeling angry and afraid. Research into brain activity would indicate that processing is primarily occurring in:",
+        "options": [
+            { "id": "a", "text": "The midbrain." },
+            { "id": "b", "text": "The left hemisphere." },
+            { "id": "c", "text": "The right hemisphere." },
+            { "id": "d", "text": "The amygdala." },
+            { "id": "e", "text": "The cerebellum" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "11_7",
+        "question": "7- Recognition of emotion especially depressive tends to be most closely associated with the:",
+        "options": [
+            { "id": "a", "text": "Right hemisphere." },
+            { "id": "b", "text": "Frontal lobe." },
+            { "id": "c", "text": "Left hemisphere." },
+            { "id": "d", "text": "Temporal lobe." },
+            { "id": "e", "text": "Midbrain" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "11_8",
+        "question": "8- Which of the following theories of emotion supports the importance of an individual's personal assessment of a situation?",
+        "options": [
+            { "id": "a", "text": "The Cognitive-Appraisal Theory" },
+            { "id": "b", "text": "The Cannon-Bard Theory." },
+            { "id": "c", "text": "The Facial Feedback Theory." },
+            { "id": "d", "text": "The James-Lange Theory." },
+            { "id": "e", "text": "The Peripheral Theory." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "11_9",
+        "question": "9- An interpretation or appraisal of a situation as having a positive or negative impact on your life resulting in a subjective feeling is called:",
+        "options": [
+            { "id": "a", "text": "The Affective-Primacy Theory." },
+            { "id": "b", "text": "The James-Lange Theory." },
+            { "id": "c", "text": "The Cannon-Bard Theory." },
+            { "id": "d", "text": "The Facial Feedback Theory." },
+            { "id": "e", "text": "The Cognitive-Appraisal Theory." }
+        ],
+        "correctAnswer": "e"
+    },
+    {
+        "id": "11_10",
+        "question": "10- The adrenal glands release:",
+        "options": [
+            { "id": "a", "text": "Cortisol" },
+            { "id": "b", "text": "Epinephrine" },
+            { "id": "c", "text": "A and b" },
+            { "id": "d", "text": "Melatonin" },
+            { "id": "e", "text": "Dopamine" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "11_11",
+        "question": "11- According to the James-Lange theory of emotion:",
+        "options": [
+            { "id": "a", "text": "Emotional experience and physiological arousal occur at the same time" },
+            { "id": "b", "text": "Emotional experience precedes physiological arousal" },
+            { "id": "c", "text": "Physiological arousal precedes emotional experience" },
+            { "id": "d", "text": "We cannot experience different emotions" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "11_12",
+        "question": "12- The ability to control one's emotions is known as:",
+        "options": [
+            { "id": "a", "text": "facial feedback" },
+            { "id": "b", "text": "interpersonal intelligence" },
+            { "id": "c", "text": "emotional regulation" },
+            { "id": "d", "text": "emotional contingency" },
+            { "id": "e", "text": "Expectancy" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "11_13",
+        "question": "13- Which of these supports the James-Lange theory of emotion?",
+        "options": [
+            { "id": "a", "text": "emotion is a visceral response producing a behavioural response" },
+            { "id": "b", "text": "artificial induction of visceral changes does not necessarily produce emotion" },
+            { "id": "c", "text": "the viscera are 'insensitive structures'" },
+            { "id": "d", "text": "visceral changes are the same in many emotions" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    }] },
+            { id: 12, title: "Chapter 12", questions: [{
+        "id": "12_1",
+        "question": "1- Stress is best defined as:",
+        "options": [
+            { "id": "a", "text": "A subjective evaluation of a situation that we believe to be overwhelming." },
+            { "id": "b", "text": "A threatening feeling that comes when we interpret a situation as more than our psychological or physiological resources can handle." },
+            { "id": "c", "text": "A situation that we see as a challenge to our psyche." },
+            { "id": "d", "text": "A measure of how much we can handle a potentially threatening situation." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "12_2",
+        "question": "2- When the adrenal medulla is activated by the sympathetic nervous system, _______ is secreted.",
+        "options": [
+            { "id": "a", "text": "Epinephrine." },
+            { "id": "b", "text": "Dopamine." },
+            { "id": "c", "text": "Serotonin." },
+            { "id": "d", "text": "Acetylcholine." },
+            { "id": "e", "text": "Prolactin" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "12_3",
+        "question": "3- What are the three stages of the general adaptation syndrome (GAS)?",
+        "options": [
+            { "id": "a", "text": "Alarm, Fight, Relaxation." },
+            { "id": "b", "text": "Alarm, Control, Exhaustion." },
+            { "id": "c", "text": "Resistance, Alarm, Homeostasis." },
+            { "id": "d", "text": "Alarm, Resistance, Exhaustion." },
+            { "id": "e", "text": "Resistance, Exhaustion, Relaxation." }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "12_4",
+        "question": "4- In what stage of the general adaptation syndrome is there a breakdown to internal organs and a weakening of the immune system?",
+        "options": [
+            { "id": "a", "text": "Alarm." },
+            { "id": "b", "text": "Resistance." },
+            { "id": "c", "text": "Exhaustion." },
+            { "id": "d", "text": "Relaxation." },
+            { "id": "e", "text": "Negative." }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "12_5",
+        "question": "5- Distress can lead to:",
+        "options": [
+            { "id": "a", "text": "Enhanced immunity." },
+            { "id": "b", "text": "Improved emotional wellness." },
+            { "id": "c", "text": "Enhanced cardiovascular function." },
+            { "id": "d", "text": "Mental dysfunction." },
+            { "id": "e", "text": "Improved performance" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "12_6",
+        "question": "6- The body's main stress hormone is:",
+        "options": [
+            { "id": "a", "text": "Norepinephrine." },
+            { "id": "b", "text": "Cortisol" },
+            { "id": "c", "text": "ACTH." },
+            { "id": "d", "text": "Epinephrine." },
+            { "id": "e", "text": "Serotonin" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "12_7",
+        "question": "7. Which of the following is an example of a physical and emotional reaction initiated by the body in response to a stressor?",
+        "options": [
+            { "id": "a", "text": "Increased digestive action." },
+            { "id": "b", "text": "Decreased blood flow." },
+            { "id": "c", "text": "Increased sweating." },
+            { "id": "d", "text": "Decreased heart rate." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "12_8",
+        "question": "8. The process of primary appraisal involves the evaluation of one's:",
+        "options": [
+            { "id": "a", "text": "Current emotional state." },
+            { "id": "b", "text": "Perception of the event." },
+            { "id": "c", "text": "Coping ability." },
+            { "id": "d", "text": "Resources." },
+            { "id": "e", "text": "Motivation" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "12_9",
+        "question": "9- The process of secondary appraisal involves the evaluation of one's:",
+        "options": [
+            { "id": "a", "text": "Current emotional state." },
+            { "id": "b", "text": "Perception of the event." },
+            { "id": "c", "text": "Coping ability and resources." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "12_10",
+        "question": "10- Emotion-focused efforts would be most effective in coping with the stress of which situation?",
+        "options": [
+            { "id": "a", "text": "Having two final exams scheduled for the same day." },
+            { "id": "b", "text": "Waiting to hear if your job application was accepted." },
+            { "id": "c", "text": "Receiving a notice that the exam results will be out next week." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "12_11",
+        "question": "11. According to the National Institute on Workers Compensation and the American Institute of stress Medical Interns are:",
+        "options": [
+            { "id": "a", "text": "The most stressful jobs" },
+            { "id": "b", "text": "Ranked as the 5th most stressful jobs" },
+            { "id": "c", "text": "More stressed than police officers" },
+            { "id": "d", "text": "The least stressful jobs" },
+            { "id": "e", "text": "Less stressed than Stock Brokers" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "12_12",
+        "question": "12. The most frequent aspect of life affected by stress is:",
+        "options": [
+            { "id": "a", "text": "Performance at work" },
+            { "id": "b", "text": "Planning" },
+            { "id": "c", "text": "Marriage" },
+            { "id": "d", "text": "Friendships" },
+            { "id": "e", "text": "Health" }
+        ],
+        "correctAnswer": "e"
+    },
+    {
+        "id": "12_13",
+        "question": "13. The most useful strategy to cope with stress is:",
+        "options": [
+            { "id": "a", "text": "Emotion-focused coping" },
+            { "id": "b", "text": "Problem-focused coping" },
+            { "id": "c", "text": "Appraisal-focused strategies" },
+            { "id": "d", "text": "Adaptation" },
+            { "id": "e", "text": "Tolerating stress" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "12_14",
+        "question": "14. Regarding coping strategies, one statement is correct:",
+        "options": [
+            { "id": "a", "text": "Problem-focused coping mechanisms may allow an individual greater perceived control over their problem." },
+            { "id": "b", "text": "Problem-focused coping mechanisms lead to a reduction in perceived control (maladaptive coping)" },
+            { "id": "c", "text": "Emotion-focused coping may allow an individual greater perceived control over their problem." },
+            { "id": "d", "text": "Usually, people use one type of coping strategy, and person's coping skills usually does not change over time." },
+            { "id": "e", "text": "Appraisal-focused strategies mean changing or eliminating the source of the stress." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "12_15",
+        "question": "15. Ways of coping with stress incudes all the following except:",
+        "options": [
+            { "id": "a", "text": "Controlling the source of stress" },
+            { "id": "b", "text": "Learning to say \"no\" to some of the demands" },
+            { "id": "c", "text": "Tolerating the source of stress by thinking about another topic such as a hobby, listening to music." },
+            { "id": "d", "text": "Dening the Problem" },
+            { "id": "e", "text": "Managing the negative emotions." }
+        ],
+        "correctAnswer": "d"
+    }] },
+            { 
+                id: 13, 
+                title: "Chapter 13", 
+     
+                questions: [{
+        "id": "13_1",
+        "question": "1- Reasons of frustration include:",
+        "options": [
+            { "id": "a", "text": "Environmental obstacles." },
+            { "id": "b", "text": "Conflicts." },
+            { "id": "c", "text": "Limitations in the subject's ability." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "13_2",
+        "question": "2- The following is NOT a reaction to frustration:",
+        "options": [
+            { "id": "a", "text": "Aggression." },
+            { "id": "b", "text": "Regression." },
+            { "id": "c", "text": "Depression." },
+            { "id": "d", "text": "Anxiety." },
+            { "id": "e", "text": "Obsession" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "13_3",
+        "question": "3- According to Freud, a process that distorts reality to prevent the individual from being overwhelmed by anxiety is known as:",
+        "options": [
+            { "id": "a", "text": "Defense mechanism." },
+            { "id": "b", "text": "Projection." },
+            { "id": "c", "text": "Psychic determinism." },
+            { "id": "d", "text": "The unconscious." },
+            { "id": "e", "text": "The Id" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "13_4",
+        "question": "4- All of the following are functions of defensive mechanisms EXCEPT:",
+        "options": [
+            { "id": "a", "text": "To alleviate anxiety." },
+            { "id": "b", "text": "To decrease coping." },
+            { "id": "c", "text": "To increase coping." },
+            { "id": "d", "text": "To solve emotional difficulties" },
+            { "id": "e", "text": "Protect ego" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "13_5",
+        "question": "5- When the person sees his boss as an angel or a devil. This is an example of defensive mechanisms called:",
+        "options": [
+            { "id": "a", "text": "Splitting." },
+            { "id": "b", "text": "Identification." },
+            { "id": "c", "text": "Passive aggressive." },
+            { "id": "d", "text": "Undoing." },
+            { "id": "e", "text": "Projection" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "13_6",
+        "question": "6- The process of blocking out of consciousness any upsetting thoughts is the defense mechanism called",
+        "options": [
+            { "id": "a", "text": "Projection." },
+            { "id": "b", "text": "Reaction formation." },
+            { "id": "c", "text": "Repression" },
+            { "id": "d", "text": "Intellectualization." },
+            { "id": "e", "text": "Undoing" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "13_7",
+        "question": "7- According to Freud, ______ is the defense mechanism that involves reverting to immature behaviors that have relieved anxiety in the past.",
+        "options": [
+            { "id": "a", "text": "Rationalization." },
+            { "id": "b", "text": "Regression." },
+            { "id": "c", "text": "Projection." },
+            { "id": "d", "text": "Displacement." },
+            { "id": "e", "text": "Humor" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "13_8",
+        "question": "8- All of the following are mature defensive mechanisms EXCEPT:",
+        "options": [
+            { "id": "a", "text": "Humor." },
+            { "id": "b", "text": "Altruism." },
+            { "id": "c", "text": "Reaction formation." },
+            { "id": "d", "text": "Sublimation." },
+            { "id": "e", "text": "Isolation of affect" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "13_9",
+        "question": "9- In Freud's theory, the part of the personality that helps the individual adapt to external reality by making compromises between the id, the superego, and the environment is the:",
+        "options": [
+            { "id": "a", "text": "Ego." },
+            { "id": "b", "text": "Pleasure principle." },
+            { "id": "c", "text": "Reality principle." },
+            { "id": "d", "text": "Rationalization." },
+            { "id": "e", "text": "Projection" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "13_10",
+        "question": "10- The defense mechanism known as ______ involves attributing one's own undesirable feelings to other people.",
+        "options": [
+            { "id": "a", "text": "Regression" },
+            { "id": "b", "text": "Rationalization" },
+            { "id": "c", "text": "Displacement" },
+            { "id": "d", "text": "Projection" },
+            { "id": "e", "text": "Reaction formation" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "13_11",
+        "question": "11. \"Everyone around me thinks they're big, funny and clever. They're all telling me my goldfish Swimmy has died. They even thought I'd be fooled by flushing a pretend one down the toilet. She's only hiding because she's cold. But it's ok... I put boiling water in there so she could warm up.\" What defence mechanism does this show?",
+        "options": [
+            { "id": "a", "text": "Denial" },
+            { "id": "b", "text": "Rationalisation" },
+            { "id": "c", "text": "Withdrawal" },
+            { "id": "d", "text": "Projection" },
+            { "id": "e", "text": "Intellectualization" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "13_12",
+        "question": "12- \"I failed my maths exam, but I'm not that bothered. It wasn't my fault; it was Mr Lobb who can't teach. If he can't be bothered then why should I revise? I won't need maths in the future anyway.\" What defence mechanism does this display?",
+        "options": [
+            { "id": "a", "text": "Regression" },
+            { "id": "b", "text": "Reaction Formation" },
+            { "id": "c", "text": "Rationalisation" },
+            { "id": "d", "text": "Denial" },
+            { "id": "e", "text": "Substitution" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "13_13",
+        "question": "13. \"There is this girl at work who I hate so much. She's intimidating, disrespectful and offensive. Strangely, she's now one of my best friends and we get on really well. Now I can't remember what I thought of her in the first place.\" What defence mechanism does this reveal?",
+        "options": [
+            { "id": "a", "text": "Withdrawal" },
+            { "id": "b", "text": "Projection" },
+            { "id": "c", "text": "Sublimation" },
+            { "id": "d", "text": "Reaction Formation" },
+            { "id": "e", "text": "Denial" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "13_14",
+        "question": "14. \"Argh, my mother-in-law has come to stay for the weekend and she's driving me crazy. I'm just staying out of the way by doing the housework and washing up so that I'm not dragged into an argument about how much of a bad wife and mother I am.\" What defence mechanism does this illustrate?",
+        "options": [
+            { "id": "a", "text": "Rationalisation" },
+            { "id": "b", "text": "Repression" },
+            { "id": "c", "text": "Denial" },
+            { "id": "d", "text": "Sublimation" },
+            { "id": "e", "text": "Projection" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "13_15",
+        "question": "15. \"The way she spoke to me was completely unacceptable, but she's going through a tough time at the moment. I'd react the same way if my mother had just died.\" What defence mechanism am I expressing?",
+        "options": [
+            { "id": "a", "text": "Regression" },
+            { "id": "b", "text": "Identification" },
+            { "id": "c", "text": "Displacement" },
+            { "id": "d", "text": "Repression" },
+            { "id": "e", "text": "Humor" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "13_16",
+        "question": "16. \"I'm sure my boyfriend has been cheating on me. When I find out he'll be sorry. Oh yeah and I need to buy my husband a birthday present...\" What defence mechanism am I experiencing?",
+        "options": [
+            { "id": "a", "text": "Reaction Formation" },
+            { "id": "b", "text": "Withdrawal" },
+            { "id": "c", "text": "Projection" },
+            { "id": "d", "text": "Denial" },
+            { "id": "e", "text": "Rationalization" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "13_17",
+        "question": "17. \"It's so unfair! My mum doesn't care how much I cry and scream, she won't get me a car. She doesn't even care about me! She hates me!\" What defence mechanism does this demonstrate?",
+        "options": [
+            { "id": "a", "text": "Sublimation" },
+            { "id": "b", "text": "Rationalisation" },
+            { "id": "c", "text": "Repression" },
+            { "id": "d", "text": "Regression" },
+            { "id": "e", "text": "Identification" }
+        ],
+        "correctAnswer": "d"
+    }] 
+            },
+            { id: 14, title: "Chapter 14", questions: [{
+        "id": "14_1",
+        "question": "1- A learned disposition to respond to people, objects, or institutions in a positive or negative way defines",
+        "options": [
+            { "id": "a", "text": "Cognitive dissonance." },
+            { "id": "b", "text": "Socialization." },
+            { "id": "c", "text": "Attitudes" },
+            { "id": "d", "text": "Stereotypes." },
+            { "id": "e", "text": "Attribution" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "14_2",
+        "question": "2- When we perform well; we typically attribute our success to",
+        "options": [
+            { "id": "a", "text": "Internal characteristics." },
+            { "id": "b", "text": "Our group of colleagues." },
+            { "id": "c", "text": "External circumstances." },
+            { "id": "d", "text": "Our personality type." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "14_3",
+        "question": "3- Your friend tastes his food and then salts it. You assume that the food needed salt, therefore, you attribute his actions to a (n)",
+        "options": [
+            { "id": "a", "text": "Internal cause." },
+            { "id": "b", "text": "External cause." },
+            { "id": "c", "text": "Setting." },
+            { "id": "d", "text": "Attitude." },
+            { "id": "e", "text": "Stereotype" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "14_4",
+        "question": "4- Physical attractiveness is more important in interpersonal attraction:",
+        "options": [
+            { "id": "a", "text": "Early in the relationship." },
+            { "id": "b", "text": "Very late in the relationship" },
+            { "id": "c", "text": "All through the relationship." },
+            { "id": "d", "text": "Simultaneously" },
+            { "id": "e", "text": "None of the above." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "14_5",
+        "question": "5- The process of changing your behavior to match that of others in a group is",
+        "options": [
+            { "id": "a", "text": "Norming." },
+            { "id": "b", "text": "Forming a social contract." },
+            { "id": "c", "text": "Conformity." },
+            { "id": "d", "text": "Standardization." },
+            { "id": "e", "text": "Group think" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "14_6",
+        "question": "6- In emergency situations, if a large crowd is witnessing helping behavior may be discouraged by",
+        "options": [
+            { "id": "a", "text": "Social loafing phenomenon." },
+            { "id": "b", "text": "Group think phenomenon." },
+            { "id": "c", "text": "Smaller social distance between the helper and the victim." },
+            { "id": "d", "text": "Fear of cognitive dissonance." },
+            { "id": "e", "text": "Conformity" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "14_7",
+        "question": "7- A change in behavior or belief as a result of real or imagined group pressure is",
+        "options": [
+            { "id": "a", "text": "Compliance." },
+            { "id": "b", "text": "Conformity." },
+            { "id": "c", "text": "Acceptance." },
+            { "id": "d", "text": "Reactance." },
+            { "id": "e", "text": "Obedience" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "14_8",
+        "question": "8- Conformity that involves publicly acting in accord with social pressure while privately disagreeing is",
+        "options": [
+            { "id": "a", "text": "Compliance." },
+            { "id": "b", "text": "Acceptance." },
+            { "id": "c", "text": "Obedience." },
+            { "id": "d", "text": "Reactance." },
+            { "id": "e", "text": "Stereotype" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "14_9",
+        "question": "8- People who are less likely to help someone because there are a lot of people present would be exhibiting:",
+        "options": [
+            { "id": "a", "text": "Group thinking." },
+            { "id": "b", "text": "Group polarization." },
+            { "id": "c", "text": "Diffusion of responsibility and social loafing." },
+            { "id": "d", "text": "Mere exposure effect." },
+            { "id": "e", "text": "conformity" }
+        ],
+        "correctAnswer": "c"
+    }] },
+            { id: 15, title: "Chapter 15", questions: [{
+        "id": "15_1",
+        "question": "1- Frustration probably encourages aggression because it",
+        "options": [
+            { "id": "a", "text": "Triggers genetic mechanisms." },
+            { "id": "b", "text": "Raises arousal levels and sensitivity to cues for aggression" },
+            { "id": "c", "text": "Triggers biological cues for aggression." },
+            { "id": "d", "text": "Relieves tension." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "15_2",
+        "question": "2- A common element in most social psychological definitions of aggression is:",
+        "options": [
+            { "id": "a", "text": "The intent to harm." },
+            { "id": "b", "text": "Hurting people and destruction of property." },
+            { "id": "c", "text": "Actual harm or injury to persons." },
+            { "id": "d", "text": "All of the above." },
+            { "id": "e", "text": "None of the above." }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "15_3",
+        "question": "3- Hitting, kicking, spitting, and verbal \"cuts\" are all signs of",
+        "options": [
+            { "id": "a", "text": "Assertion." },
+            { "id": "b", "text": "Aggression." },
+            { "id": "c", "text": "Annoyance." },
+            { "id": "d", "text": "Mild anger." },
+            { "id": "e", "text": "Obedience" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "15_4",
+        "question": "4- All of the following theories have been put forth as a theory to explain aggression EXCEPT?",
+        "options": [
+            { "id": "a", "text": "The psychoanalytical (innate) theory of aggression." },
+            { "id": "b", "text": "The social learning theory of aggression." },
+            { "id": "c", "text": "The containment theory of aggression." },
+            { "id": "d", "text": "The biological theory." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "15_5",
+        "question": "5- Low levels of which neurotransmitter has been implicated in studies of aggression?",
+        "options": [
+            { "id": "a", "text": "GABA" },
+            { "id": "b", "text": "Dopamine." },
+            { "id": "c", "text": "Serotonin." },
+            { "id": "d", "text": "Norepinephrine." },
+            { "id": "e", "text": "Acetylcholine" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "15_6",
+        "question": "6- What is the term used to describe the idea that people get their aggression \"out of their system\" by playing violent sports?",
+        "options": [
+            { "id": "a", "text": "Catharsis." },
+            { "id": "b", "text": "Cachexia." },
+            { "id": "c", "text": "The emotion-purge cycle." },
+            { "id": "d", "text": "Vector viewing." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "15_7",
+        "question": "7- Which theory of aggression argues that the blocking of one's goals will lead to aggressive behavior because of anger and hostility?",
+        "options": [
+            { "id": "a", "text": "The frustration-aggression theory." },
+            { "id": "b", "text": "The instinct theory." },
+            { "id": "c", "text": "The excitation-transfer theory." },
+            { "id": "d", "text": "The social learning theory." },
+            { "id": "e", "text": "The Maslow hierarchy" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "15_8",
+        "question": "8- Who was a pioneer in social psychology, demonstrating the effects of observational learning and aggression in children?",
+        "options": [
+            { "id": "a", "text": "Sigmund Freud" },
+            { "id": "b", "text": "John B. Watson" },
+            { "id": "c", "text": "Ivan Pavlov" },
+            { "id": "d", "text": "Albert Bandura" },
+            { "id": "e", "text": "Carl jung" }
+        ],
+        "correctAnswer": "d"
+    },
+    {
+        "id": "15_9",
+        "question": "9- Instrumental aggression often involves:",
+        "options": [
+            { "id": "a", "text": "Immediate emotional reaction." },
+            { "id": "b", "text": "Systematic thinking about the situation." },
+            { "id": "c", "text": "Spontaneous anger due to insult." },
+            { "id": "d", "text": "Threats to self-esteem." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "15_10",
+        "question": "10- Which of the following best describes how Lorenz understood what causes aggression?",
+        "options": [
+            { "id": "a", "text": "Aggression is a consequence of de-individuation." },
+            { "id": "b", "text": "Aggression is a consequence of our social identity." },
+            { "id": "c", "text": "Aggression is a consequence of our fighting instinct." },
+            { "id": "d", "text": "Aggression is a consequence of situational cues." },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "c"
+    },
+    {
+        "id": "15_11",
+        "question": "11-The aggression could be explained by the person being frustrated by some person is known as",
+        "options": [
+            { "id": "a", "text": "excitation transfer model" },
+            { "id": "b", "text": "frustration-aggression hypothesis" },
+            { "id": "c", "text": "social learning theory" },
+            { "id": "d", "text": "Psychoanaltic Theory" },
+            { "id": "e", "text": "None of the above" }
+        ],
+        "correctAnswer": "b"
+    },
+    {
+        "id": "15_12",
+        "question": "12- Bandura's social learning theory is",
+        "options": [
+            { "id": "a", "text": "Behaviour can be learnt through direct experience" },
+            { "id": "b", "text": "Result from frustration" },
+            { "id": "c", "text": "Emphasize role of modeling" },
+            { "id": "d", "text": "None of the above" },
+            { "id": "e", "text": "All of the above" }
+        ],
+        "correctAnswer": "a"
+    },
+    {
+        "id": "15_13",
+        "question": "13- Correlation between testosterone levels and aggression?",
+        "options": [
+            { "id": "a", "text": "Positive correlation" },
+            { "id": "b", "text": "Negative correlation" },
+            { "id": "c", "text": "Contradictory" },
+            { "id": "d", "text": "No correlation" },
+            { "id": "e", "text": "Weak correlation" }
+        ],
+        "correctAnswer": "a"
+    }] },
+            
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+        let allRevealed = false;
+
+                function renderQuiz() {
+            quizContainer.innerHTML = ''; 
+
+            chaptersData.forEach(chapter => {
+                const chapterHeader = document.createElement('div');
+                chapterHeader.className = 'chapter-header';
+                chapterHeader.innerText = chapter.title;
+                quizContainer.appendChild(chapterHeader);
+
+                if (chapter.note) {
+                    const noteDiv = document.createElement('div');
+                    noteDiv.className = 'chapter-note';
+                    noteDiv.innerText = chapter.note;
+                    quizContainer.appendChild(noteDiv);
+                }
+
+                chapter.questions.forEach((qData) => {
+                    const card = document.createElement('div');
+                    card.className = 'question-card';
+                    card.dataset.id = qData.id;
+
+                    const questionText = document.createElement('div');
+                    questionText.className = 'question-text';
+                    questionText.innerHTML = `<strong>Q:</strong> ${qData.question}`;
+                    card.appendChild(questionText);
+
+                    const optionsContainer = document.createElement('div');
+                    optionsContainer.className = 'options';
+
+                    const explanationDiv = document.createElement('div');
+                    explanationDiv.className = 'explanation';
+                    
+                    // ==========================================
+                    // التعديل الجديد الخاص بالبصمجة وتفنيد الخيارات
+                    // ==========================================
+                    let explanationHTML = '';
+                    
+                    // 1. إضافة قسم البصمجة
+                    if (qData.basmaga) {
+                        const formattedBasmaga = qData.basmaga.replace(/`([^`]+)`/g, '<span class="term">`$1`</span>');
+                        explanationHTML += `
+                            <div style="text-align: right;">
+                                <div class="basmaga-box">البصمجة 🫆</div>
+                            </div>
+                            <div class="basmaga-text">${formattedBasmaga}</div>
+                        `;
+                    }
+
+
+                                        // 2. إضافة قسم تفنيد الخيارات الخاطئة
+                    if (qData.wrong_explanations && Object.keys(qData.wrong_explanations).length > 0) {
+                        explanationHTML += `<div class="wrong-title-box">طب ليه الباقي غلط 🤔</div>`;
+                        
+                        for (const [letter, text] of Object.entries(qData.wrong_explanations)) {
+                            // جلب النص الإنجليزي الأصلي من مصفوفة الخيارات
+                            const originalOption = qData.options.find(opt => opt.id.toLowerCase() === letter.toLowerCase());
+                            const englishText = originalOption ? originalOption.text : '';
+
+                            const formattedText = text.replace(/`([^`]+)`/g, '<span class="term">`$1`</span>');
+                            
+                            explanationHTML += `
+                                <div class="wrong-item">
+                                    <div class="wrong-option-container">
+                                        <div class="wrong-option-box">
+                                            <strong>${letter.toUpperCase()}.</strong> ${englishText}
+                                        </div>
+                                    </div>
+                                    <div class="wrong-text-box">${formattedText}</div>
+                                </div>
+                            `;
+                        }
+                    }
+
+
+                    explanationDiv.innerHTML = explanationHTML;
+                    // ==========================================
+
+                    const savedAnswer = localStorage.getItem(`ans_${qData.id}`);
+
+                    qData.options.forEach(opt => {
+                        const optionBtn = document.createElement('button');
+                        optionBtn.className = 'option';
+                        optionBtn.dataset.optId = opt.id.toLowerCase();
+                        optionBtn.innerHTML = `<strong>${opt.id.toUpperCase()}.</strong> ${opt.text}`;
+                        
+                        if (savedAnswer && savedAnswer === opt.id.toLowerCase()) {
+                            applySelectionLogic(optionBtn, optionsContainer, explanationDiv, opt.id, qData.correctAnswer);
+                        }
+
+                        optionBtn.addEventListener('click', () => {
+                            localStorage.setItem(`ans_${qData.id}`, opt.id.toLowerCase());
+                            applySelectionLogic(optionBtn, optionsContainer, explanationDiv, opt.id, qData.correctAnswer);
+                        });
+
+                        optionsContainer.appendChild(optionBtn);
+                    });
+
+                    card.appendChild(optionsContainer);
+                    card.appendChild(explanationDiv);
+                    quizContainer.appendChild(card);
+                });
+
+                if (chapter.questions.length > 0) {
+                    const resetBtn = document.createElement('button');
+                    resetBtn.className = 'chapter-reset-btn';
+                    resetBtn.innerText = 'إعادة تعيين إجابات الفصل';
+                    resetBtn.onclick = () => clearChapterProgress(chapter.id);
+                    quizContainer.appendChild(resetBtn);
+                }
+
+                if (chapter.id !== chaptersData[chaptersData.length - 1].id) {
+                    const divider = document.createElement('hr');
+                    divider.className = 'chapter-divider';
+                    quizContainer.appendChild(divider);
+                }
+            });
+        }
+
+        function applySelectionLogic(clickedBtn, optionsContainer, explanationDiv, selectedId, correctId) {
+            Array.from(optionsContainer.children).forEach(btn => {
+                btn.className = 'option';
+            });
+
+            const isCorrect = selectedId.toLowerCase() === correctId.toLowerCase();
+
+            if (isCorrect) {
+                clickedBtn.classList.add('selected', 'correct');
+            } else {
+                clickedBtn.classList.add('selected', 'incorrect');
+                const correctBtn = Array.from(optionsContainer.children).find(b => b.dataset.optId === correctId.toLowerCase());
+                if(correctBtn) correctBtn.classList.add('reveal-correct');
+            }
+            
+            if(explanationDiv.innerHTML !== '') {
+                explanationDiv.style.display = 'block';
+            }
+        }
+
+        function toggleAllAnswers() {
+            const btn = document.getElementById('toggle-all-btn');
+            allRevealed = !allRevealed;
+
+            chaptersData.forEach(chapter => {
+                chapter.questions.forEach(qData => {
+                    const card = document.querySelector(`.question-card[data-id="${qData.id}"]`);
+                    if(!card) return;
+                    
+                    const optionsContainer = card.querySelector('.options');
+                    const explanationDiv = card.querySelector('.explanation');
+
+                    Array.from(optionsContainer.children).forEach(b => b.className = 'option');
+                    explanationDiv.style.display = 'none';
+
+                    if (allRevealed) {
+                        const correctBtn = Array.from(optionsContainer.children).find(b => b.dataset.optId === qData.correctAnswer.toLowerCase());
+                        if (correctBtn) correctBtn.classList.add('selected', 'correct');
+                        if(explanationDiv.innerHTML !== '') explanationDiv.style.display = 'block';
+                    } else {
+                        const savedAnswer = localStorage.getItem(`ans_${qData.id}`);
+                        if(savedAnswer) {
+                            const savedBtn = Array.from(optionsContainer.children).find(b => b.dataset.optId === savedAnswer);
+                            if(savedBtn) applySelectionLogic(savedBtn, optionsContainer, explanationDiv, savedAnswer, qData.correctAnswer);
+                        }
+                    }
+                });
+            });
+
+            btn.innerText = allRevealed ? "❌ Deactivate Basmacology Mode ❌" : "🫆 Activate Basmacology Mode 🫆";
+
+        }
+
+        // دالة مخصصة لمسح تقدم فصل معين بصرياً ومن الذاكرة بدون إعادة تحميل كامل الصفحة
+        function clearChapterProgress(chapterId) {
+            const chapter = chaptersData.find(c => c.id === chapterId);
+            if (!chapter || chapter.questions.length === 0) return;
+
+            chapter.questions.forEach(qData => {
+                localStorage.removeItem(`ans_${qData.id}`);
+                
+                const card = document.querySelector(`.question-card[data-id="${qData.id}"]`);
+                if(card) {
+                    const optionsContainer = card.querySelector('.options');
+                    const explanationDiv = card.querySelector('.explanation');
+                    
+                    Array.from(optionsContainer.children).forEach(btn => {
+                        btn.className = 'option';
+                    });
+                    explanationDiv.style.display = 'none';
+                }
+            });
+        }
+
+        renderQuiz();
+
+    </script>
+</body>
+</html>
